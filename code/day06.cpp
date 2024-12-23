@@ -35,19 +35,19 @@ char turn_right(char direction) {
 
 // Helper function to check for a boulder
 // [[Rcpp::export]]
-bool check_boulder(const CharacterMatrix input, const int x, const int y) {
+bool check_boulder(const CharacterMatrix& input, const int x, const int y) {
   return input(x - 1, y - 1) == "#";
 }
 
 // Main function for the first part
 // [[Rcpp::export]]
 Rcpp::List go_to_exit(
-    const CharacterMatrix input, 
+    const CharacterMatrix& input, 
     const IntegerVector starting_point
 ) {
   // Initialize directions and positions
   char direction = 'U'; 
-  std::size_t max_n = input.nrow() * input.ncol(); 
+  const std::size_t max_n = input.nrow() * input.ncol(); 
   std::vector<int> positions_x (2 * max_n); 
   positions_x[0] = starting_point[0]; 
   std::vector<int> positions_y (2 * max_n);
@@ -88,7 +88,7 @@ Rcpp::List go_to_exit(
 // Main function for the second part
 // [[Rcpp::export]]
 bool check_for_loop(
-    const CharacterMatrix input, 
+    const CharacterMatrix& input, 
     const IntegerVector starting_point, 
     const bool debug = false
 ) {
@@ -97,7 +97,7 @@ bool check_for_loop(
   // Initialize directions and positions
   char direction = 'U'; 
   // I think this is the maximum number of different positions (???)
-  std::size_t max_n = input.nrow() * input.ncol(); 
+  const std::size_t max_n = input.nrow() * input.ncol(); 
   int position_x = starting_point[0]; 
   int position_y = starting_point[1]; 
   int next_x {0}; 
