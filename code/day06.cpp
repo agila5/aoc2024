@@ -52,8 +52,8 @@ Rcpp::List go_to_exit(
   positions_x[0] = starting_point[0]; 
   std::vector<int> positions_y (2 * max_n);
   positions_y[0] = starting_point[1]; 
-  int next_x {0}; 
-  int next_y {0}; 
+  int next_x {}; 
+  int next_y {}; 
   int counter {0}; 
   
   while (true) {
@@ -100,8 +100,8 @@ bool check_for_loop(
   const std::size_t max_n = input.nrow() * input.ncol(); 
   int position_x = starting_point[0]; 
   int position_y = starting_point[1]; 
-  int next_x {0}; 
-  int next_y {0}; 
+  int next_x {}; 
+  int next_y {}; 
   std::size_t counter {0};
   
   if (debug) {
